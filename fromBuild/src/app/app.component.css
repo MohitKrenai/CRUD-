@@ -1,0 +1,214 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+.loginForm{
+    width: 100%; 
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(17, 17, 17, 0.946);
+}
+.heading{
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;   
+}
+hr{
+    color: rgb(0, 178, 248);
+}
+.nameDetails{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+span{
+    color: red;
+}
+input{
+    outline: none;
+    border: none;
+    padding: 0.4rem;
+    margin: 1rem 0;
+    margin-left: 0.3rem;
+}
+input:focus{
+    border: 1px solid black;
+}
+.contactDetails input{
+    width: 100%;  
+}
+.submit{
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    padding: 0.6rem;
+    margin-top: 2rem;
+    color: white;
+}
+.submit:hover{
+    border: 2px solid white;
+    background-color: transparent;
+
+
+}
+
+
+
+/* ------------------------------------------------------- */
+
+.main{
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    /* align-items: center; */
+}
+
+.btn-action{
+    display: flex;
+    gap: 1rem;
+}
+
+
+th{
+    padding: 0.3rem 1.4rem;
+    color: white;
+
+}
+td{
+    color: #595656;
+}
+thead{
+    font-size: 1.2rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  th {
+    background-color: rgba(17, 17, 17, 0.946)
+  }
+
+  .collapsible {
+    cursor: pointer;
+    user-select: none;
+    background-color: #595656;
+    padding: 8px;
+    border: 1px solid #dddddd;
+  }
+
+  .content {
+    display: none;
+    padding: 8px;
+  }
+
+  .show{
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 1rem;
+    background-color: rgb(0, 178, 248);
+    font-size: 1.5rem;
+    padding: 0.6rem;
+    margin-bottom: 2rem;
+    color: white;
+}
+.show:hover{
+    border: 2px solid rgb(0, 178, 248);
+    background-color: transparent;
+    color: rgb(0, 178, 248);
+
+}
+
+
+.Shorting{
+    /* margin-bottom: 1rem; */
+    background-color: white;
+    border: 1px solid rgb(0, 178, 248);
+    border-radius: 9px;
+}
+
+.action{
+    display: flex;
+    gap: 15rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.search{
+    display: flex;
+    gap: 1rem;
+    border-radius: 2px;
+    align-items: center;
+
+}
+/* styles.css (global) or component-specific style */
+.even-row {
+    background-color: #f2f2f2; /* Set the background color for even rows */
+  }
+  
+  .odd-row {
+    background-color: #ffffff; /* Set the background color for odd rows */
+  }
+  
+
+/* -------------------------------------------pagination----------------------------------- */
+
+.pagination-controls{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+.pageStyle{
+
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+}
+.pageStyle li a{
+    background-color: #0d6efd;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+
+}
+.pageStyle li a:hover{
+    background-color: transparent;
+    border: 1px solid white;
+}
+.popup{
+    padding: 3rem 23rem;
+}
+.popup-content div{
+    padding: 0.7rem;
+}
+.popup-content .modal-footer {
+ display: flex;
+ gap: 1rem;
+}
+.popup-content .modal-footer button{
+    padding: 0.4rem 1rem;
+}
+/* .active{
+    background-color: red;
+} */
+
+
+

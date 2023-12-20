@@ -1,0 +1,125 @@
+
+<div class="main">
+
+  <!-- ------------------------------------------------Risiter section----------------------------------------- -->
+
+  <section class="loginFor ">
+    <h1 class="heading">---SignUp Form---</h1>
+    <hr>
+    <div class="formDetails">
+      <form>
+        <div class="nameDetails">
+          <div>
+            <label for="Fname">Fisrt Name: <span>*</span> </label>
+            <!-- <span *ngIf="Fname && Fname.invalid && Fname.touched"> This field is required</span> -->
+            <input type="text" [(ngModel)]="user.firstName" name="Fname" id="Fname">
+          </div>
+          <div>
+            <label for="Lname">Last Name: </label>
+            <input type="text" [(ngModel)]="user.lastName" name="Lname" id="Lname">
+          </div>
+        </div>
+
+        <div class="contactDetails">
+          <label for="phone">Phone No: <span>*</span></label>
+          <!-- <span *ngIf="phone && phone.invalid && phone.touched">please enter correct number</span> -->
+          <input type="tel" [(ngModel)]="user.phoneNo" name="phone" id="phone">
+          <br>
+          <label for="email">Emial: <span>*</span></label>
+          <input type="email" [(ngModel)]="user.email" name="emailid" id="emailid">
+          <!-- <span *ngIf="email && email.invalid && email.touched">please enter valid email</span> -->
+
+          <br>
+          <label for="password">Password: <span>*</span> </label>
+          <!-- <span *ngIf="password && password.invalid && password.touched">password must be 8 digit</span> -->
+          <input type="password" [(ngModel)]="user.password" name="password" id="password">
+        </div>
+        <button type="submit" class="submit btn-primary btn" *ngIf="user.id==0"
+          (click)="register(user)">Register</button>
+        <button type="submit" class="submit btn btn-primary" *ngIf="user.id!==0" (click)="update(user)">Update</button>
+
+      </form>
+    </div>
+  </section>
+
+   <!-- ------------------------------------------------Form section----------------------------------------- -->
+
+  <section class="loginForm">
+    <button class="show" (click)="showData()">Show Data</button>
+    <div class="action">
+      <div>
+        <select class="Shorting" name="btn" [(ngModel)]="selectedOption" (change)="onOptionChange($event)">
+          <option value="inc" selected>INC</option>
+          <option value="dec">DEC</option>
+        </select>
+      </div>
+      <div class="input-group search">
+        <input type="text" class="form-control " placeholder="Search here..." [(ngModel)]="searchValue"
+          (keyup)="search($event)">
+      </div>
+    </div>
+    <div>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Phone No</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Password</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of getPaginatedData(); let even = even">
+            <td [ngClass]="{'even-row': even, 'odd-row': !even}">{{ user.serialNumber }}</td>
+            <td [ngClass]="{'even-row': even, 'odd-row': !even}">{{ user.phoneNo }}</td>
+            <td [ngClass]="{'even-row': even, 'odd-row': !even}">{{ user.email }}</td>
+            <td [ngClass]="{'even-row': even, 'odd-row': !even}">{{ user.firstName }}</td>
+            <td [ngClass]="{'even-row': even, 'odd-row': !even}">{{ user.lastName }}</td>
+            <td [ngClass]="{'even-row': even, 'odd-row': !even}">{{ user.password }}</td>
+            <td [ngClass]="{'even-row': even, 'odd-row': !even}" class="btn-action">
+              <button class="btn btn-primary" (click)="edit(user)">Edit</button>
+              <button type="button" class="btn btn-danger" (click)="openModal(user.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+ <!-- ------------------------------------------------pagination section----------------------------------------- -->
+
+<div class="pagination-controls">
+  <button class="btn btn-primary px-2" (click)="onPageChange(currentPage - 1)"
+    [disabled]="currentPage === 1">Previous</button>
+  <ul class="pageStyle">
+    <li *ngFor="let page of pagesArray()" class="active" [class.active]="page === currentPage">
+      <a (click)="onPageChange(page)">{{ page }}</a>
+    </li>
+  </ul>
+  <button class="btn btn-primary px-2" (click)="onPageChange(currentPage + 1)"
+    [disabled]="currentPage === getTotalPages()">Next</button>
+</div>
+
+
+ <!-- ------------------------------------------------popUp section----------------------------------------- -->
+
+<div class="modal fade popup" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content popup-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">Are you sure to delete the data</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="delete()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
